@@ -1,6 +1,6 @@
 {
   "name": "str-expand",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Expand a string pattern into a list of strings using sequence or enum tokens.",
   "main": "index.js",
   "scripts": {
