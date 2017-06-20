@@ -12,7 +12,7 @@ npm i str-expand
 ## Usage
 
 ```js
-const strExpand = require('./index.js')
+const strExpand = require('str-expand')
 
 
 // single-item list for strings with no tokens

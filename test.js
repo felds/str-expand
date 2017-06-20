@@ -1,5 +1,5 @@
 const expect = require('expect')
-const strExpand = require('./index.js')
+const strExpand = require('./index')
 
 // return single-item list for strings with no tokens
 expect(strExpand('http://example.com'))
