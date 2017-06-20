@@ -1,8 +1,3 @@
-// @TODO Padded ranges
-// @TODO decrement
-// @TODO alpha ranges
-// @TODO steps
-
 const concat = (x,y) => x.concat(y)
 const fmap = (f,xs) => xs.map(f).reduce(concat, [])
 
