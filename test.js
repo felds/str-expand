@@ -1,16 +1,16 @@
 const expect = require('expect')
-const sut = require('./index.js')
+const strExpand = require('./index.js')
 
 // return single-item list for strings with no tokens
-expect(sut('http://example.com'))
+expect(strExpand('http://example.com'))
     .toEqual([ 'http://example.com' ])
 
 // return empty list for empty string
-expect(sut(''))
+expect(strExpand(''))
     .toEqual([])
 
 // expand one range
-expect(sut('http://example.com/[1..3].jpg'))
+expect(strExpand('http://example.com/[1..3].jpg'))
     .toEqual([
         'http://example.com/1.jpg',
         'http://example.com/2.jpg',
@@ -18,7 +18,7 @@ expect(sut('http://example.com/[1..3].jpg'))
     ])
 
 // expand multiple ranges
-expect(sut('http://example.com/[1..2]/[3..4].jpg'))
+expect(strExpand('http://example.com/[1..2]/[3..4].jpg'))
     .toEqual([
         'http://example.com/1/3.jpg',
         'http://example.com/1/4.jpg',
@@ -27,13 +27,13 @@ expect(sut('http://example.com/[1..2]/[3..4].jpg'))
     ])
 
 // expand enum
-expect(sut('banana {bread,muffin,cake}'))
+expect(strExpand('banana {bread,muffin,cake}'))
     .toEqual([
         'banana bread',
         'banana muffin',
         'banana cake',
     ])
-expect(sut('{cold,warm} banana {bread,muffin,cake}'))
+expect(strExpand('{cold,warm} banana {bread,muffin,cake}'))
     .toEqual([
         'cold banana bread',
         'cold banana muffin',
@@ -44,7 +44,7 @@ expect(sut('{cold,warm} banana {bread,muffin,cake}'))
     ])
 
 // mix and match
-expect(sut('It was called {red,blue,yellow} [3..5]'))
+expect(strExpand('It was called {red,blue,yellow} [3..5]'))
     .toEqual([
         'It was called red 3',
         'It was called red 4',

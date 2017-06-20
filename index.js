@@ -14,7 +14,7 @@ const arrayRange = (from, to) => new Array(to - from + 1)
     .fill(0)
     .map((_, i) => parseInt(from) + i)
 
-function expandUrlRange(pattern) {
+function strExpand(pattern) {
     if (pattern === '') {
         return []
     }
@@ -27,7 +27,7 @@ function expandUrlRange(pattern) {
         const vals = bracesMatch[1].split(',')
         return vals
             .map(v => pattern.replace(bracesRegex, v))
-            .fmap(s => expandUrlRange(s))
+            .fmap(s => strExpand(s))
     }
 
     // https://regex101.com/r/NUZ0mY/3
@@ -37,10 +37,10 @@ function expandUrlRange(pattern) {
         const { 1: from, 2: to } = bracketsMatch
         return arrayRange(from, to)
             .map(v => pattern.replace(bracketsRegex, v))
-            .fmap(s => expandUrlRange(s))
+            .fmap(s => strExpand(s))
     }
     
     return [ pattern ]
 }
 
-module.exports = expandUrlRange
+module.exports = strExpand
