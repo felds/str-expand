@@ -1,0 +1,28 @@
+{
+  "name": "str-expand",
+  "version": "1.0.0",
+  "description": "Expand a string pattern into a list of strings using sequence or enum tokens.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felds/str-expand.git"
+  },
+  "keywords": [
+    "glob",
+    "expand",
+    "string",
+    "tokens"
+  ],
+  "author": "Luiz “Felds” Liscia <dev@felds.com.br>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/felds/str-expand/issues"
+  },
+  "homepage": "https://github.com/felds/str-expand#readme",
+  "devDependencies": {
+    "expect": "^1.20.2"
+  }
+}
