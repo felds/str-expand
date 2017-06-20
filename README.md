@@ -5,7 +5,7 @@ Expand a string pattern into a list of strings using sequence or enum tokens.
 
 ## Install
 
-```terminal
+```shell
 npm i str-expand
 ```
 
