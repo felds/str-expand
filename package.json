@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/felds/str-expand#readme",
   "devDependencies": {
-    "expect": "^1.20.2"
+    "expect": "^1.20.2",
+    "lodash": "^4.17.4"
   }
 }

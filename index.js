@@ -1,3 +1,5 @@
+const range = require('lodash/fp/range')
+
 const concat = (x,y) => x.concat(y)
 const fmap = (f,xs) => xs.map(f).reduce(concat, [])
 
@@ -5,9 +7,7 @@ Array.prototype.fmap = function(f) {
   return fmap(f,this);
 };
 
-const arrayRange = (from, to) => new Array(to - from + 1)
-    .fill(0)
-    .map((_, i) => parseInt(from) + i)
+
 
 function strExpand(pattern) {
     if (pattern === '') {
@@ -30,7 +30,7 @@ function strExpand(pattern) {
     const bracketsMatch = bracketsRegex.exec(pattern)
     if (bracketsMatch) {
         const { 1: from, 2: to } = bracketsMatch
-        return arrayRange(from, to)
+        return range(parseInt(from), parseInt(to) + 1)
             .map(v => pattern.replace(bracketsRegex, v))
             .fmap(s => strExpand(s))
     }
