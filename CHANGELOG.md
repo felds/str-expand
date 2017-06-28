@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 - Support for padded ranges
+- Support for decremental ranges
 
 ### Removed
 - Array.prototype.fmap
