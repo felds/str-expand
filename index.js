@@ -28,7 +28,7 @@ function strExpand(pattern) {
             map(padCharsStart("0", from.length)),
             map(n => pattern.replace(bracketsRegex, n)),
             flatMap(s => strExpand(s))
-        )(range(parseInt(from), parseInt(to) + 1))
+        )(range(parseInt(from), parseInt(to)).concat(to))
     }
     
     return [ pattern ]

@@ -61,3 +61,7 @@ expect(strExpand('It was called {red,blue,yellow} [3..5]'))
 // padded ranges
 expect(strExpand('[009..011]'))
     .toEqual([ '009', '010', '011' ])
+
+// decrement
+expect(strExpand('[3..0]'))
+    .toEqual([ '3', '2', '1', '0' ])
