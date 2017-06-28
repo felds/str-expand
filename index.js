@@ -1,13 +1,4 @@
-const range = require('lodash/fp/range')
-
-const concat = (x,y) => x.concat(y)
-const fmap = (f,xs) => xs.map(f).reduce(concat, [])
-
-Array.prototype.fmap = function(f) {
-  return fmap(f,this);
-};
-
-
+const { flow, range, flatMap, map } = require('lodash/fp')
 
 function strExpand(pattern) {
     if (pattern === '') {
@@ -20,9 +11,11 @@ function strExpand(pattern) {
     const bracesMatch = bracesRegex.exec(pattern)
     if (bracesMatch) {
         const vals = bracesMatch[1].split(',')
-        return vals
-            .map(v => pattern.replace(bracesRegex, v))
-            .fmap(s => strExpand(s))
+
+        return flow(
+            map(v => pattern.replace(bracesRegex, v)),
+            flatMap(s => strExpand(s))
+        )(vals)
     }
 
     // https://regex101.com/r/NUZ0mY/3
@@ -30,9 +23,11 @@ function strExpand(pattern) {
     const bracketsMatch = bracketsRegex.exec(pattern)
     if (bracketsMatch) {
         const { 1: from, 2: to } = bracketsMatch
-        return range(parseInt(from), parseInt(to) + 1)
-            .map(v => pattern.replace(bracketsRegex, v))
-            .fmap(s => strExpand(s))
+
+        return flow(
+            map(v => pattern.replace(bracketsRegex, v)),
+            flatMap(s => strExpand(s))
+        )(range(parseInt(from), parseInt(to) + 1))
     }
     
     return [ pattern ]
