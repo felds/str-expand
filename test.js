@@ -65,3 +65,7 @@ expect(strExpand('[009..011]'))
 // decrement
 expect(strExpand('[3..0]'))
     .toEqual([ '3', '2', '1', '0' ])
+
+// padded decrement
+expect(strExpand('[12..08]'))
+    .toEqual([ '12', '11', '10', '09', '08' ])

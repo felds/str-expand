@@ -23,9 +23,12 @@ function strExpand(pattern) {
     const bracketsMatch = bracketsRegex.exec(pattern)
     if (bracketsMatch) {
         const { 1: from, 2: to } = bracketsMatch
+        const padding = from < to
+            ? from.length
+            : to.length
 
         return flow(
-            map(padCharsStart("0", from.length)),
+            map(padCharsStart("0", padding)),
             map(n => pattern.replace(bracketsRegex, n)),
             flatMap(s => strExpand(s))
         )(range(parseInt(from), parseInt(to)).concat(to))
