@@ -6,10 +6,20 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
 
+## 1.1.0 (2017-06-28)
+
+### Added
+- Support for padded ranges
+
+### Removed
+- Array.prototype.fmap
+
+
+
 ## 1.0.3 (2017-06-21)
 
 ### Fixed
-- Stops using Array.prototype.fill to accommodate IE10.
+- Stops using Array.prototype.fill to accommodate IE10
 
 
 

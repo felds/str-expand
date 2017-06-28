@@ -1,6 +1,7 @@
 const expect = require('expect')
 const strExpand = require('./index')
 
+
 // return single-item list for strings with no tokens
 expect(strExpand('http://example.com'))
     .toEqual([ 'http://example.com' ])

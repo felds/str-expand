@@ -44,6 +44,11 @@ strExpand('http://example.com/[1..2]/[3..4].jpg')
 //        'http://example.com/2/4.jpg',
 // ]
 
+strExpand('[090..100].png')
+// => [ '090.png', '091.png', ... '099.png', '100.png' ]
+
+
+
 
 // expand string enums
 
