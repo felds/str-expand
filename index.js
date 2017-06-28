@@ -1,4 +1,4 @@
-const { flow, range, flatMap, map } = require('lodash/fp')
+const { flow, range, flatMap, map, padCharsStart } = require('lodash/fp')
 
 function strExpand(pattern) {
     if (pattern === '') {
@@ -25,7 +25,8 @@ function strExpand(pattern) {
         const { 1: from, 2: to } = bracketsMatch
 
         return flow(
-            map(v => pattern.replace(bracketsRegex, v)),
+            map(padCharsStart("0", from.length)),
+            map(n => pattern.replace(bracketsRegex, n)),
             flatMap(s => strExpand(s))
         )(range(parseInt(from), parseInt(to) + 1))
     }
