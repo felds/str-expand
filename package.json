@@ -4,10 +4,10 @@
   "description": "Expand a string pattern into a list of strings using sequence or enum tokens.",
   "main": "index.js",
   "dependencies": {
-    "lodash": "^4.17.11"
+    "lodash": "^4.17"
   },
   "devDependencies": {
-    "jest": "^23.6.0"
+    "jest": "^23.6"
   },
   "repository": {
     "type": "git",
