@@ -4,11 +4,10 @@
   "description": "Expand a string pattern into a list of strings using sequence or enum tokens.",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
-  "dependencies": {
-    "lodash": "^4.17.21"
-  },
+  "dependencies": {},
   "devDependencies": {
     "jest": "^24.9.0"
   },

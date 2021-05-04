@@ -1,4 +1,20 @@
-const { compose, flatMap, map, padCharsStart, range } = require("lodash/fp");
+const compose = (...fs) => (x) => fs.reduceRight((acc, f) => f(acc), x);
+
+const padCharsStart = (char, minLength) => (str) =>
+  String(str).padStart(minLength, char);
+
+const map = (f) => (xs) => xs.map(f);
+
+const range = (from, to) => {
+  const arr = Array(Math.abs(from - to));
+  const step = Math.sign(to - from);
+  for (let i = 0; i < arr.length; i++) {
+    arr[i] = +from + i * step;
+  }
+  return arr;
+};
+
+const flatMap = (f) => (xs) => xs.flatMap(f);
 
 /**
  * Expand a string pattern into a list of strings using sequence or enum tokens.
