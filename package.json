@@ -2,19 +2,6 @@
   "name": "str-expand",
   "version": "2.0.0",
   "description": "Expand a string pattern into a list of strings using sequence or enum tokens.",
-  "main": "index.js",
-  "scripts": {
-    "test": "jest",
-    "test:watch": "jest --watch"
-  },
-  "devDependencies": {
-    "jest": "^24.9.0",
-    "typescript": "^4.9.4"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/felds/str-expand.git"
-  },
   "keywords": [
     "glob",
     "expand",
@@ -26,5 +13,23 @@
   "bugs": {
     "url": "https://github.com/felds/str-expand/issues"
   },
-  "homepage": "https://github.com/felds/str-expand#readme"
+  "homepage": "https://github.com/felds/str-expand#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felds/str-expand.git"
+  },
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsup index.ts --format cjs,esm --dts",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0",
+    "tsup": "^6.5.0",
+    "typescript": "^4.9.4"
+  }
 }
