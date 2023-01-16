@@ -7,9 +7,9 @@
     "test": "jest",
     "test:watch": "jest --watch"
   },
-  "dependencies": {},
   "devDependencies": {
-    "jest": "^24.9.0"
+    "jest": "^24.9.0",
+    "typescript": "^4.9.4"
   },
   "repository": {
     "type": "git",
