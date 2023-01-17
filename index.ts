@@ -36,9 +36,12 @@ export default function expand(pattern: string): string[] {
   if (bracketsMatch) {
     const from = parseInt(bracketsMatch[1]!);
     const to = parseInt(bracketsMatch[2]!);
-    const minLength = Math.min(from.toString().length, to.toString().length);
+    const minLength = Math.min(
+      bracketsMatch[1]!.length,
+      bracketsMatch[2]!.length,
+    );
 
-    [...range(from, to), to]
+    return [...range(from, to), to]
       .map(padCharsStart("0", minLength))
       .map((n) => pattern.replace(bracketsRegex, n))
       .flatMap(expand);
